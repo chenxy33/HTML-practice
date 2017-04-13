@@ -1,0 +1,130 @@
+<! DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+  h1 {text-transform: uppercase}                     <!--将h1标题转大写；将超链接的下划线去掉-->
+  a {text-decoration: none}
+</style>
+ <!--定义默认链接地址     <base href="http://www.runoob.com/images/" target="_blank">       这个用了之后就不能跳转书签了-->
+<meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript">     <!--为搜索引擎定义关键字-->
+<meta http-equiv="refresh" content="1000">                            <!--每1000s刷新一次当前页面-->
+<meta charset="utf-8">
+<title>我的页面My page</title>
+<!--链接到外部CSS         <link rel="stylesheet" type="text/css" href="styles.css">        -->  
+<script type="text/javascript">                  <!--这个脚本用来验证email 地址 -->  
+var i=0
+function validate_email(field,alerttxt)
+{
+with (field)
+{
+apos=value.indexOf("@")
+dotpos=value.lastIndexOf(".")
+if (apos<1||dotpos-apos<2) 
+  {alert(alerttxt);return false}
+else {return true}
+}
+}
+
+function validate_form(thisform)
+{
+with (thisform)
+{
+if (validate_email(email,"Not a valid e-mail address!")==false)
+  {email.focus();return false}
+}
+}
+
+function button1()
+{
+i++;
+document.getElementById("button1text").innerHTML= "点击" + i + "次"
+}
+
+var c=0
+var t
+function timedCount()
+{
+document.getElementById('txt').innerHTML="页面已打开" + c + "秒"
+c=c+1
+t=setTimeout("timedCount()",1000)
+}
+
+</script>
+</head>
+<body onload="timedCount()"> 
+
+<div id="txt" style="color:red"></div>
+
+<p>
+<form action="submitpage.htm"onsubmit="return validate_form(this);" method="post">
+Email: <input type="text" name="email" size="30">
+<input type="submit" value="点我验证email address有效性"> 
+</form>
+</p>
+
+<p>
+<div id="button1text">点击0次</div>
+<button onclick="button1()">点我计数</button>
+</p>
+
+
+<p>
+<div id="button2text">显示/隐藏</div>
+<button onclick="document.getElementById('button2text').style.visibility='hidden'">点我隐藏</button>
+<button onclick="document.getElementById('button2text').style.visibility='visible'">点我显示</button>
+</p>
+<hr>
+
+<p>
+<a id="书签1">这里的位置是书签1</a><br />
+<a href="#书签2">点击这里跳转至底部的书签2</a>
+</p>
+
+
+<p style="color:blue;margin-left:20px;" onclick="this.innerHTML='Changed';this.style='color:red'">这是1个内联样式，点我改变文本和样式</p>
+<p onmouseover="this.innerHTML='Changed';this.style='color:red'" onmouseout="this.innerHTML='鼠标悬停时将改变'">鼠标悬停时将改变</p>
+<h1 style="font-family:arial;font-size:20px;background-color:red;">This is h1 title, with background color, font arial, and 20px size</h1>
+<h2 style="text-align:center;">这是标题 2，使用了居中样式</h2>
+<hr>  <!--  创建水平线 -->
+<p><a href="http://www.baidu.com" target="blank">在新标签中打开Baidu</a></P>
+<p><a href="http://www.runoob.com/html">属性可以用“”或‘’括起，如果属性值本身含双引号，那么就必须使用单引号</a></P>
+<p><pre>
+使用 pre 标签
+对空行和      空格
+进行控制，称预格式文本
+</pre></p>
+<abbr title="etcetera">etc.</abbr>
+<br />
+<acronym title="World Wide Web">WWW</acronym>
+<br />
+使用abbr或acronym标签的title属性，在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本
+<p>
+<b>加粗文本</b>
+<i>斜体文本</i>
+<code>电脑自动输出</code>
+这是 <sub> 下标</sub> 和 <sup> 上标</sup>
+<big>这个文本字体放大</big>
+<small>这个文本是缩小的</small>
+<p/>
+<p><bdo dir="rtl">该段落文字从右到左显示。</bdo></p>  
+<q>块引用好像可以起到自带双引号的效果</q>
+<p> <del>删除线效果</del> <ins>插入线效果</ins>!</p>
+<p><a href="http://www.runoob.com/html"><img src="C:\Users\chenxy33\Desktop\屌丝王\DS王.jpg" width="300"/></a>
+<br>这个图片上挂了一个链接,文字上没有链接是因为/a标签的位置设在了这段文字之前</p>
+<p><img src="C:\Users\chenxy33\Desktop\屌丝王\5f23da79d097eb63c7d43724779aa3a9.jpg" alt="当图片无法显示会提示这段替换文字" height="200" width="300"/></a>
+</br>
+<a href="http://www.baidu.com/" target="_blank">target属性设为blank时在新窗口打开</a>
+<p><b>time</b><sup>1111</sup></p>
+<p><i>time</i><sub>1111</sub></p>
+<address>
+使用address标签显示为地址格式
+Written by <a href="mailto:1@1.com?cc=2@1.com&bcc=3@1.com&subject=主题&body=You%20are%20invited%20to%20a%20big%20summer%20party!" target="_top">发送邮件!</a><br>    <!-- 这里用mailto来叫出邮件-->
+Visit us at:<br>
+Example.com<br>
+Box 564, Disneyland<br>
+USA
+</address>
+<p><a href="#书签1">点击这里跳转至顶部的书签1</a>
+<br><a id="书签2">这里放入了书签2</a></p>
+</body>
+</html>
